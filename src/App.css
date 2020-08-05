@@ -1,0 +1,42 @@
+.mush-details {
+  overflow-x: scroll;
+  min-height: 125px;
+  max-width: 100%;
+}
+
+.ui.grid > .row.mush-details-row {
+  flex-wrap: nowrap;
+  min-height: 100%;
+}
+
+.ui.grid {
+  padding: 0px 20px;
+}
+
+.addTask {
+  font-size: x-large;
+  padding: 10%;
+}
+
+.searchBar{
+  height:100px;
+}
+
+.search {
+  display:inline-block;
+  float:right;
+}
+
+.filter {
+  display:inline-block;
+  float:left;
+}
+
+img {
+width: 200px;
+height: 100px;
+}
+
+*{
+  padding:5%
+}
