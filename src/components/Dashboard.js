@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { currentUser } from '../actions/auth'
 import { fetchListsSuccess } from '../actions/list'
 import { fetchTasksSuccess } from '../actions/task'
+import Grid from '@material-ui/core/Grid';
 
 
 class Dashboard extends React.Component {
@@ -41,13 +42,19 @@ class Dashboard extends React.Component {
 
   render(){ 
     return (
-      <div class="ui three column grid">
-        <div className="row">
-        {this.props.lists.map(listObj => {
-          return <Task {...listObj} tasks={this.props.tasks.filter(task => task.list_id === listObj.id)}/>
-        })}
-        </div>
-    }</div>)
+      <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+            spacing={2}
+            >
+          {this.props.lists.map(listObj => {
+            return <Grid item xs={4} style={{zIndex: 2}}>
+             <Task {...listObj} tasks={this.props.tasks.filter(task => task.list_id === listObj.id)}/>
+            </Grid>
+          })}
+      </Grid>)
   };
 }
 

@@ -123,7 +123,7 @@ class Task extends React.Component {
   render(){
     console.log(this.props)
     return <div style={{marginBottom: "25px"}} className="ui column">
-          <div className="ui card">
+          <div className="ui card" style={{maxWidth: '150%', position: 'relative'}}>
             <div className="content">
               <div className="header">
               <h1>{this.props.name}</h1>
