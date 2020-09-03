@@ -5,6 +5,8 @@ import { currentUser } from '../actions/auth'
 import { fetchListsSuccess } from '../actions/list'
 import { fetchTasksSuccess } from '../actions/task'
 import Grid from '@material-ui/core/Grid';
+import Form from './Form';
+
 
 
 class Dashboard extends React.Component {
@@ -42,19 +44,25 @@ class Dashboard extends React.Component {
 
   render(){ 
     return (
+      <div>
+      {this.props.auth ?
+      <div className="please" style={{position: 'absolute', top: '4em', left: '60%', zIndex: '20'}}>
+        <Form /> </div>: null
+      }
       <Grid
             container
             direction="row"
             justify="center"
-            alignItems="flex-start"
+            alignItems="center"
             spacing={2}
             >
           {this.props.lists.map(listObj => {
-            return <Grid item xs={4} style={{zIndex: 2}}>
+            return <Grid item xs={8} style={{zIndex: 2}}>
              <Task {...listObj} tasks={this.props.tasks.filter(task => task.list_id === listObj.id)}/>
             </Grid>
           })}
-      </Grid>)
+      </Grid>
+      </div>)
   };
 }
 

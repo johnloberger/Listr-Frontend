@@ -4,6 +4,7 @@ import { Button, Icon } from 'semantic-ui-react'
 import { deleteListSuccess } from '../actions/list'
 import TaskForm from './TaskForm';
 import { updateTaskArray } from '../actions/task'
+import { Card } from 'semantic-ui-react'
 
 class Task extends React.Component {
 
@@ -39,13 +40,13 @@ class Task extends React.Component {
         tasks: newTasksToShow
       }
       const reqObj = {
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(newTaskArr)
       }
-      fetch(`http://localhost:3001/api/v1/lists/${this.props.id}/tasks`, reqObj)
+      fetch(`http://localhost:3001/api/v1/tasks`, reqObj)
       .then(resp => resp.json())
       .then(tasks => {
         console.log(tasks)
@@ -66,13 +67,13 @@ class Task extends React.Component {
         tasks: newTasksToShow
       }
       const reqObj = {
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(newTaskArr)
       }
-      fetch(`http://localhost:3001/api/v1/lists/${this.props.id}/tasks`, reqObj)
+      fetch(`http://localhost:3001/api/v1/tasks`, reqObj)
       .then(resp => resp.json())
       .then(tasks => {
         console.log(tasks)
@@ -123,7 +124,8 @@ class Task extends React.Component {
   render(){
     console.log(this.props)
     return <div style={{marginBottom: "25px"}} className="ui column">
-          <div className="ui card" style={{maxWidth: '150%', position: 'relative'}}>
+    <Card fluid color='blue' header={this.props.name} style={{textAlign: 'center'}}>
+
             <div className="content">
               <div className="header">
               <h1>{this.props.name}</h1>
@@ -149,7 +151,7 @@ class Task extends React.Component {
                   <Icon name='trash alternate' />
                 </Button.Content>
               </Button>
-          </div>  
+              </Card>
     </div>
   }
 }

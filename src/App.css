@@ -4,6 +4,14 @@
   max-width: 100%;
 }
 
+.please {
+  position: absolute;
+  
+  top: 1em;
+  left: 20%;
+  z-index: 20;
+}
+
 .ui.grid > .row.mush-details-row {
   flex-wrap: nowrap;
   min-height: 100%;
@@ -24,12 +32,12 @@
 
 .search {
   display:inline-block;
-  float:right;
+  float: right;
 }
 
 .filter {
   display:inline-block;
-  float:left;
+  float: left;
 }
 
 img {

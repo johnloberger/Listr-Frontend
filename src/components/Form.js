@@ -39,12 +39,11 @@ class Form extends React.Component {
   }
 
   render(){
-    return <div>
-      <form onSubmit={this.handleSubmit}>
+    return <form onSubmit={this.handleSubmit} className='listform'>
         <input type='text' value={this.state.name} onChange={this.handleChange} />
         <input type='submit' value='add list'/>
       </form>
-    </div>
+  
   }
 
 }
